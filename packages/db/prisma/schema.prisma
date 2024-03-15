@@ -10,15 +10,15 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-generator zod {
-    provider = "prisma-zod-generator"
-    output   = "../generated/zod"
-}
+// generator zod {
+//     provider = "prisma-zod-generator"
+//     output   = "../generated/zod"
+// }
 
-generator dbml {
-    provider = "prisma-dbml-generator"
-    output   = "../generated/dbml"
-}
+// generator dbml {
+//     provider = "prisma-dbml-generator"
+//     output   = "../generated/dbml"
+// }
 
 enum GenderEnum {
     M
