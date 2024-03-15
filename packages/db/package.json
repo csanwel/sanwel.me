@@ -1,39 +1,24 @@
 {
   "name": "@sanwel/db",
   "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "exports": {
-    ".": "./src/index.ts"
-  },
+  "main": "./index.ts",
+  "types": "./index.ts",
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
-    "format": "prettier --check . --ignore-path ../../.gitignore",
-    "lint": "eslint .",
-    "push": "drizzle-kit push:mysql",
-    "studio": "drizzle-kit studio",
-    "typecheck": "tsc --noEmit"
+    "db:generate": "pnpm with-env prisma generate",
+    "db:push": "pnpm with-env prisma db push --skip-generate",
+    "dev": "pnpm with-env prisma studio --port 5556",
+    "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@planetscale/database": "^1.13.0",
-    "drizzle-orm": "^0.29.3"
+    "@prisma/client": "^5.6.0"
   },
   "devDependencies": {
-    "@sanwel/eslint-config": "workspace:^0.2.0",
-    "@sanwel/prettier-config": "workspace:^0.1.0",
-    "@sanwel/tsconfig": "workspace:^0.1.0",
     "dotenv-cli": "^7.3.0",
-    "drizzle-kit": "^0.20.10",
-    "eslint": "^8.56.0",
-    "prettier": "^3.1.1",
+    "prisma": "^5.6.0",
+    "prisma-dbml-generator": "^0.10.0",
+    "prisma-zod-generator": "^0.8.13",
     "typescript": "^5.3.3"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@sanwel/eslint-config/base"
-    ]
-  },
-  "prettier": "@sanwel/prettier-config"
+  }
 }

@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
+
 import { cn } from "@sanwel/ui";
 import { ThemeProvider, ThemeToggle } from "@sanwel/ui/theme";
 import { Toaster } from "@sanwel/ui/toast";
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
 
 import { env } from "~/env";
 import { TRPCReactProvider } from "~/trpc/react";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     env.VERCEL_ENV === "production"
       ? "https://turbo.t3.gg"
-      : "http://localhost:3000",
+      : "http://localhost:7777",
   ),
   title: "Create T3 Turbo",
   description: "Simple monorepo with shared backend for web & mobile apps",
