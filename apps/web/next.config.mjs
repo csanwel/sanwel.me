@@ -1,6 +1,8 @@
 // Importing env files here to validate on build
 import "./src/env.js";
 
+import { withAxiom } from "next-axiom";
+
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
@@ -19,4 +21,4 @@ const config = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
 };
 
-export default config;
+export default withAxiom(config);

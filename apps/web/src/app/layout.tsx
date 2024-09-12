@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
+import { AxiomWebVitals } from "next-axiom";
 
 import { cn } from "@sanwel/ui";
 import { ThemeProvider, ThemeToggle } from "@sanwel/ui/theme";
@@ -57,6 +58,8 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           <Toaster />
         </ThemeProvider>
       </body>
+
+      <AxiomWebVitals />
     </html>
   );
 }

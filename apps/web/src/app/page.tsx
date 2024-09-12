@@ -1,6 +1,4 @@
-import { Suspense } from "react";
-
-import { CreatePostForm, PostCardSkeleton } from "./_components/posts";
+import { Button } from "@sanwel/ui/button";
 
 export const runtime = "edge";
 
@@ -12,9 +10,10 @@ export default async function HomePage() {
           Create <span className="text-primary">T3</span> Turbo
         </h1>
 
-        <CreatePostForm />
+        {/* <CreatePostForm /> */}
         <div className="w-full max-w-2xl overflow-y-scroll">
-          <Suspense
+          <Button>Hi</Button>
+          {/* <Suspense
             fallback={
               <div className="flex w-full flex-col gap-4">
                 <PostCardSkeleton />
@@ -23,8 +22,8 @@ export default async function HomePage() {
               </div>
             }
           >
-            {/* <PostList posts={posts} /> */}
-          </Suspense>
+            <PostList posts={posts} />
+          </Suspense> */}
         </div>
       </div>
     </main>

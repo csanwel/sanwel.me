@@ -30,8 +30,12 @@
   },
   "prettier": "@sanwel/prettier-config",
   "pnpm": {
-    "overrides": {
-      "@auth/core": "0.20.0"
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@babel/*",
+        "expo-modules-*",
+        "typescript"
+      ]
     }
   }
 }
