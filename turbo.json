@@ -1,51 +1,31 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "globalDependencies": ["**/.env"],
   "pipeline": {
-    "db:generate": {
-      "inputs": ["prisma/schema.prisma"],
-      "cache": false
+    "lint": {
+      "outputs": []
     },
-    "db:push": {
-      "inputs": ["prisma/schema.prisma"],
-      "cache": false
-    },
-    "topo": {
-      "dependsOn": ["^topo"]
+    "test": {
+      "dependsOn": ["build"],
+      "inputs": ["**/*.{ts,tsx,js,jsx}"]
     },
     "build": {
-      "dependsOn": ["^build", "^db:generate"],
-      "outputs": [
-        ".next/**",
-        "!.next/cache/**",
-        "next-env.d.ts",
-        ".expo/**",
-        ".output/**",
-        ".vercel/output/**"
-      ]
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "build/**", "node_modules/.cache/metro/**"]
     },
     "dev": {
-      "persistent": true,
-      "cache": false
+      "cache": false,
+      "persistent": true
     },
-    "format": {
-      "outputs": ["node_modules/.cache/.prettiercache"],
-      "outputMode": "new-only"
+    "dev:android": {
+      "cache": false,
+      "persistent": true
     },
-    "lint": {
-      "dependsOn": ["^topo"],
-      "outputs": ["node_modules/.cache/.eslintcache"]
-    },
-    "typecheck": {
-      "dependsOn": ["^topo"],
-      "outputs": ["node_modules/.cache/tsbuildinfo.json"]
+    "dev:web": {
+      "cache": false,
+      "persistent": true
     },
     "clean": {
       "cache": false
-    },
-    "//#clean": {
-      "cache": false
     }
-  },
-  "globalEnv": ["DATABASE_URL"]
+  }
 }

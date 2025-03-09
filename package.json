@@ -1,34 +1,26 @@
 {
-  "name": "sanwel.me",
+  "name": "@rnr/monorepo",
   "private": true,
-  "engines": {
-    "node": ">=20.10"
-  },
-  "packageManager": "pnpm@9.1.2",
   "scripts": {
+    "dev": "turbo dev",
+    "dev:docs": "turbo dev --filter=docs",
+    "dev:showcase": "turbo dev --filter=showcase --concurrency 32",
+    "dev:showcase:android": "turbo dev:android --filter=showcase --concurrency 32",
+    "dev:showcase:web": "turbo dev:web --filter=showcase --concurrency 32",
+    "dev:starter-base": "turbo dev --filter=starter-base",
+    "dev:starter-base:android": "turbo dev:android --filter=starter-base",
+    "dev:starter-base:web": "turbo dev:web --filter=starter-base",
+    "lint": "turbo lint",
+    "test": "turbo test",
     "build": "turbo build",
-    "clean": "git clean -xdf node_modules",
-    "clean:workspaces": "turbo clean",
-    "db:studio": "pnpm -F db studio",
-    "db:generate": "turbo db:generate",
-    "db:push": "turbo db:push db:generate",
-    "dev": "turbo dev --parallel",
-    "format": "turbo format --continue -- --cache --cache-location node_modules/.cache/.prettiercache",
-    "format:fix": "turbo format --continue -- --write --cache --cache-location node_modules/.cache/.prettiercache",
-    "lint": "turbo lint --continue -- --cache --cache-location node_modules/.cache/.eslintcache",
-    "lint:fix": "turbo lint --continue -- --fix --cache --cache-location node_modules/.cache/.eslintcache",
-    "lint:ws": "pnpm dlx sherif@latest",
-    "postinstall": "pnpm lint:ws",
-    "typecheck": "turbo typecheck"
+    "build:showcase": "turbo build --filter=showcase",
+    "build:docs": "turbo build --filter=docs",
+    "clean": "turbo clean && rm -rf .turbo node_modules"
   },
   "devDependencies": {
-    "@sanwel/prettier-config": "workspace:^0.1.0",
-    "@turbo/gen": "^1.11.3",
-    "prettier": "^3.1.1",
-    "turbo": "^1.11.3",
+    "turbo": "^1.12.4",
     "typescript": "^5.3.3"
   },
-  "prettier": "@sanwel/prettier-config",
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
@@ -37,5 +29,16 @@
         "typescript"
       ]
     }
-  }
+  },
+  "prettier": {
+    "printWidth": 100,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "trailingComma": "es5"
+  },
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "packageManager": "pnpm@9.1.4"
 }
