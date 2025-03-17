@@ -66,7 +66,7 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const hasMounted = React.useRef(false);
-  const { colorScheme, isDarkColorScheme } = useColorScheme();
+  const { isDarkColorScheme } = useColorScheme();
   const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
 
   useIsomorphicLayoutEffect(() => {
@@ -87,7 +87,7 @@ function RootLayoutNav() {
   }
 
   return (
-    <ThemeProvider value={isDarkColorScheme ? DarkTheme : LIGHT_THEME}>
+    <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: "modal" }} />

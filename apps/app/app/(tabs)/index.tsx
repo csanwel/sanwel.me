@@ -13,6 +13,7 @@ export default function TabOneScreen() {
         darkColor="rgba(255,255,255,0.1)"
       />
       <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <Text className="text-blue-400">Blue TEXT</Text>
     </View>
   );
 }
