@@ -4,7 +4,9 @@
  */
 import "./src/env.js";
 
+import { withBetterStack } from "@logtail/next";
+
 /** @type {import("next").NextConfig} */
 const config = {};
 
-export default config;
+export default withBetterStack(config);
